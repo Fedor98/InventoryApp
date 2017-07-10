@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Layout for a single list item in the list of pets -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="@dimen/activity_margin">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout style="@style/TextViewsLayoutStyle">
+
+            <TextView
+                style="@style/TextViewsDetailStyle"
+                android:text="@string/list_name" />
+
+            <TextView
+                android:id="@+id/name"
+                style="@style/TextViewsDetailStyle" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/TextViewsLayoutStyle">
+
+            <TextView
+                style="@style/TextViewsDetailStyle"
+                android:text="@string/list_price" />
+
+            <TextView
+                android:id="@+id/price"
+                style="@style/TextViewsDetailStyle" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/TextViewsLayoutStyle">
+
+            <TextView
+                style="@style/TextViewsDetailStyle"
+                android:text="@string/list_quantity" />
+
+            <TextView
+                android:id="@+id/quantity"
+                style="@style/TextViewsDetailStyle" />
+
+            <Button
+                android:id="@+id/increase_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/detail_increase_button_mL"
+                android:text="@string/button_detail_increase" />
+
+            <Button
+                android:id="@+id/decrease_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/detail_decrease_button_mL"
+                android:text="@string/button_detail_decrease" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/TextViewsLayoutStyle">
+
+            <TextView
+                style="@style/TextViewsDetailStyle"
+                android:text="@string/list_supplier" />
+
+            <TextView
+                android:id="@+id/supplier"
+                style="@style/TextViewsDetailStyle" />
+        </LinearLayout>
+
+        <!-- Product Image category -->
+        <LinearLayout style="@style/TextViewsLayoutStyle">
+
+            <TextView
+                style="@style/TextViewsDetailStyle"
+                android:text="@string/list_product_image" />
+
+            <ImageView
+                android:id="@+id/image_view_holder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

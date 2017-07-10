@@ -1,0 +1,149 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">>
+    <string name="app_name">Inventory App</string>
+
+    <!-- Text displayed on the Sale Button -->
+    <string name="sale_button">Buy</string>
+
+    <!-- Label for overflow menu option that inserts fake inventory data into the app [CHAR LIMIT=20] -->
+    <string name="action_insert_dummy_data">Insert Dummy Data</string>
+
+    <!-- Label for overflow menu option that deletes all inventory data in the app [CHAR LIMIT=20] -->
+    <string name="action_delete_all_entries">Delete All Items</string>
+
+    <!-- Title text for the empty view, which describes the empty ware house image [CHAR LIMIT=50] -->
+    <string name="empty_view_title_text">It\'s a bit lonely here...</string>
+
+    <!-- Subtitle text for the empty view that prompts the user to add an item [CHAR LIMIT=50] -->
+    <string name="empty_view_subtitle_text">Get started by adding an item</string>
+
+    <!-- Title for the activity to add a new item [CHAR LIMIT=20] -->
+    <string name="detail_activity_title_new_item">Add an Item</string>
+
+    <!-- Title for the activity to view an existing item [CHAR LIMIT=20] -->
+    <string name="detail_activity_title_detail_item">View Item details</string>
+
+    <!-- Label for adder menu option to save item and leave adder [CHAR LIMIT=20] -->
+    <string name="action_save">Save</string>
+
+    <!-- Label for detail menu option that deletes the current item [CHAR LIMIT=20] -->
+    <string name="action_delete">Delete</string>
+
+    <!-- Label for detail menu option that purchases the current item [CHAR LIMIT=20] -->
+    <string name="action_shop">Order more</string>
+
+    <!-- Label for order button in CatalogActivity [CHAR LIMIT=20] -->
+    <string name="action_buy">Buy</string>
+
+    <!-- Toast message in catalog when dummy data has been successfully inserted [CHAR LIMIT=NONE]-->
+    <string name="catalog_dummy_successful">Dummy Data successfully inserted</string>
+
+    <!-- Toast message in catalog when dummy data has failed to be inserted [CHAR LIMIT=NONE]-->
+    <string name="catalog_dummy_failed">Dummy Data has failed to be inserted</string>
+
+    <!-- Toast message in editor when new item has been successfully inserted [CHAR LIMIT=NONE] -->
+    <string name="add_insert_item_successful">Item saved</string>
+
+    <!-- Toast message in editor when new item has failed to be inserted [CHAR LIMIT=NONE] -->
+    <string name="add_insert_item_failed">Error with saving item</string>
+
+    <!-- Toast message in editor when current item was successfully ordered [CHAR LIMIT=NONE] -->
+    <string name="detail_shop_item_successful">Item ordered!</string>
+
+    <!-- Toast message in editor when current item has failed to be ordered [CHAR LIMIT=NONE] -->
+    <string name="detail_shop_item_failed">Error with ordering item</string>
+
+    <!-- Dialog message when user is leaving editor but hasn't saved changes [CHAR LIMIT=NONE] -->
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+
+    <!-- Dialog button text for the option to discard a user's changes [CHAR LIMIT=20] -->
+    <string name="discard">Discard</string>
+
+    <!-- Dialog button text for the option to keep editing the current item [CHAR LIMIT=20] -->
+    <string name="keep_editing">Keep Editing</string>
+
+    <!-- Toast message in editor when current item was successfully deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_item_successful">Item deleted</string>
+
+    <!-- Toast message in editor when item has failed to be deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_item_failed">Error with deleting item</string>
+
+    <!-- Toast message in editor when pets were successfully deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_inventory_successful">All items deleted</string>
+
+    <!-- Toast message in editor when current pet has failed to be deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_inventory_failed">Error with deleting inventory</string>
+
+    <!-- Dialog message to ask the user to confirm deleting the current item [CHAR LIMIT=NONE] -->
+    <string name="delete_dialog_msg">Delete this item?</string>
+
+    <!-- Dialog message to ask the user to confirm deleting all items [CHAR LIMIT=NONE] -->
+    <string name="delete_all_dialog_msg">Delete all items?</string>
+
+    <!-- Dialog button text for the option to confirm deleting the current item [CHAR LIMIT=20] -->
+    <string name="delete">Delete</string>
+
+    <!-- Dialog button text for the option to cancel deletion of the current item [CHAR LIMIT=20] -->
+    <string name="cancel">Cancel</string>
+
+    <!-- Error message for when user did not enter a price in the adder [CHAR LIMIT=20] -->
+    <string name="enter_valid_price_data">Enter valid price data!</string>
+
+    <!-- Label for name information in the detail activity [CHAR LIMIT=30] -->
+    <string name="list_name">Name: \u0020</string>
+
+    <!-- Label for price information in the catalog activity [CHAR LIMIT=30] -->
+    <string name="list_price">Price: \u0020</string>
+
+    <!-- Label for quantity information in the catalog activity [CHAR LIMIT=30] -->
+    <string name="list_quantity">Quantity: \u0020</string>
+
+    <!-- Label for supplier information in the detail activity [CHAR LIMIT=30] -->
+    <string name="list_supplier">Supplier: \u0020</string>
+
+    <!-- Label for product image in the detail activity [CHAR LIMIT=30] -->
+    <string name="list_product_image">Product Image: \u0020</string>
+
+    <!-- Button to increase quantity of item in detail activity -->
+    <string name="button_detail_increase" translatable="false">+</string>
+
+    <!-- Button to decrease quantity of item in detail activity -->
+    <string name="button_detail_decrease" translatable="false">-</string>
+
+    <!-- Label for name information in the adder [CHAR LIMIT=30] -->
+    <string name="category_name">Name</string>
+
+    <!-- Label for product image in the adder [CHAR LIMIT=30] -->
+    <string name="category_product_image">Product Image</string>
+
+    <!-- Text written on the add image button in the adder[CHAR LIMIT=30] -->
+    <string name="add_image_adder">Add Image</string>
+
+    <!-- Text written on the add image button in the adder after being clicked on [CHAR LIMIT=30] -->
+    <string name="change_image_adder">Change Image</string>
+
+    <!-- Label for quantity information in the adder [CHAR LIMIT=30] -->
+    <string name="category_quantity">Quantity</string>
+
+    <!-- Label for supplier information in the adder [CHAR LIMIT=30] -->
+    <string name="category_supplier">Supplier</string>
+
+    <!-- Label for price information in the adder [CHAR LIMIT=30] -->
+    <string name="category_price">Price</string>
+
+    <!-- Units for price of the item (euros) [CHAR LIMIT=5] -->
+    <string name="unit_item_price">€</string>
+
+    <!-- Subject line for the order summary email. [CHAR LIMIT=NONE] -->
+    <string name="order_summary_email_subject">Inventory App Order</string>
+
+    <!-- First line of order summary [CHAR LIMIT=30] -->
+    <string name="init_order_summary">Hi, \nI want to order a\u0020<xliff:g example="Towel" id="itemName">%s</xliff:g>\u0020</string>
+
+    <!-- Price line of order summary [CHAR LIMIT=30] -->
+    <string name="price_order_summary">for a price of <xliff:g example="$10" id="itemPrice">%s</xliff:g>\u0020</string>
+
+    <!-- Supplier line of order summary [CHAR LIMIT=30] -->
+    <string name="supplier_order_summary">from <xliff:g example="Walmart" id="itemSupplier">%s</xliff:g>.</string>
+
+
+</resources>
