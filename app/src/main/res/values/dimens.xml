@@ -22,8 +22,14 @@
     <!-- Left margin for decrease quantity by one button in detail activity -->
     <dimen name="detail_decrease_button_mL">24dp</dimen>
 
+    <!-- Left margin of image related views in detail activity -->
+    <dimen name="detail_image_mL">3dp</dimen>
+
     <!-- Height of product image in the adder -->
-    <dimen name="product_image_height_adder">120dp</dimen>
+    <dimen name="product_image_height_adder">140dp</dimen>
+
+    <!-- Width of product image in the adder -->
+    <dimen name="product_image_with_adder">180dp</dimen>
 
     <!-- Top margin for image adder button in adder -->
     <dimen name="adder_image_button_mT">58dp</dimen>

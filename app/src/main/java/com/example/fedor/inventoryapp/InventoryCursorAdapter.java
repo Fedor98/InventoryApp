@@ -104,8 +104,11 @@ public class InventoryCursorAdapter extends CursorAdapter {
         if (itemQuantity > 0) {
             ContentValues values = new ContentValues();
             int newQuantity = itemQuantity - 1;
+
             values.put(InventoryEntry.COLUMN_ITEM_QUANTITY, newQuantity);
             context.getContentResolver().update(itemUri, values, null, null);
+
+            Toast.makeText(context, "Item ordered.", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(context, "This item is out of stock.", Toast.LENGTH_SHORT).show();
 

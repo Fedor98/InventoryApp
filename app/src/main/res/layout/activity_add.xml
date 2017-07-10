@@ -28,29 +28,34 @@
 
         <!-- Label -->
         <TextView
-            android:id="@+id/add_image_title"
             style="@style/CategoryStyle"
             android:text="@string/category_product_image" />
+
+        <!-- Input field -->
+        <LinearLayout
+            style="@style/InputFieldsLayoutStyle">
 
         <!-- Product Image -->
         <ImageView
             android:id="@+id/add_image_view_holder"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/product_image_with_adder"
             android:layout_height="@dimen/product_image_height_adder"
             android:layout_marginTop="@dimen/activity_margin"
-            android:src="@drawable/empty_database" />
+            android:layout_marginLeft="@dimen/detail_image_mL"/>
 
         <!-- Product Image button -->
         <Button
             android:id="@+id/add_select_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/adder_image_button_mT"
             android:background="@color/colorAccent"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginLeft="@dimen/detail_image_mL"
             android:paddingLeft="@dimen/activity_margin"
             android:paddingRight="@dimen/activity_margin"
             android:textColor="@android:color/white"
             android:text="@string/add_image_adder" />
+            </LinearLayout>
     </LinearLayout>
 
     <!-- Name category -->
@@ -98,7 +103,7 @@
             <EditText
                 android:id="@+id/add_item_price"
                 android:hint="@string/category_price"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 style="@style/AdderFieldStyle" />
 
             <!-- Units for price (€) -->

@@ -7,6 +7,8 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.example.fedor.inventoryapp.data.InventoryContract.InventoryEntry;
@@ -188,91 +190,6 @@ public class InventoryProvider extends ContentProvider {
         return ContentUris.withAppendedId(uri, id);
     }
 
-    @Override
-    public int update(Uri uri, ContentValues contentValues, String selection,
-                      String[] selectionArgs) {
-        final int match = sUriMatcher.match(uri);
-        switch (match) {
-            case INVENTORY:
-                return updateItem(uri, contentValues, selection, selectionArgs);
-            case ITEM_ID:
-                // For the ITEm_ID code, extract out the ID from the URI,
-                // so we know which row to update. Selection will be "_id=?" and selection
-                // arguments will be a String array containing the actual ID.
-                selection = InventoryEntry._ID + "=?";
-                selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
-                return updateItem(uri, contentValues, selection, selectionArgs);
-            default:
-                throw new IllegalArgumentException("Update is not supported for " + uri);
-        }
-    }
-
-    /**
-     * Update items in the database with the given content values. Apply the changes to the rows
-     * specified in the selection and selection arguments (which could be 0 or 1 or more items).
-     * Return the number of rows that were successfully updated.
-     */
-    private int updateItem(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-        // If the {@link InventoryEntry#COLUMN_ITEM_NAME} key is present,
-        // check that the name value is not null.
-        if (values.containsKey(InventoryEntry.COLUMN_ITEM_NAME)) {
-            String name = values.getAsString(InventoryEntry.COLUMN_ITEM_NAME);
-            if (name == null) {
-                throw new IllegalArgumentException("Item requires a name");
-            }
-        }
-
-        // If the {@link InventoryEntry#COLUMN_ITEM_PRICE} key is present,
-        // check that it's greater than or equal to 0€.
-        if (values.containsKey(InventoryEntry.COLUMN_ITEM_PRICE)) {
-            Integer price = values.getAsInteger(InventoryEntry.COLUMN_ITEM_PRICE);
-            if (price != null && price > 0) {
-                throw new IllegalArgumentException("Item requires valid price");
-            }
-        }
-
-        // If the {@link InventoryEntry#COLUMN_ITEM_QUANTITY} key is present,
-        // check that it's greater than or equal to 0.
-        if (values.containsKey(InventoryEntry.COLUMN_ITEM_QUANTITY)) {
-            Integer quantity = values.getAsInteger(InventoryEntry.COLUMN_ITEM_QUANTITY);
-            if (quantity != null && quantity < 0) {
-                throw new IllegalArgumentException("Item requires valid quantity");
-            }
-        }
-
-        // If the {@link InventoryEntry#COLUMN_ITEM_IMAGE} key is present,
-        // check that the product image value is not null.
-        if (values.containsKey(InventoryEntry.COLUMN_ITEM_IMAGE)) {
-            String itemImage = values.getAsString(InventoryEntry.COLUMN_ITEM_IMAGE);
-            if (itemImage == null) {
-                throw new IllegalArgumentException("Item requires a product image");
-            }
-        }
-
-            // No need to check the image, any value is valid (including null).
-
-            // If there are no values to update, then don't try to update the database
-            if (values.size() == 0) {
-                return 0;
-            }
-
-            // Otherwise, get writeable database to update the data
-            SQLiteDatabase database = mDbHelper.getWritableDatabase();
-
-            // Perform the update on the database and get the number of rows affected
-            int rowsUpdated = database.update(InventoryEntry.TABLE_NAME, values, selection,
-                    selectionArgs);
-
-            // If 1 or more rows were updated, then notify all listeners that the data at the
-            // given URI has changed
-            if (rowsUpdated != 0) {
-                getContext().getContentResolver().notifyChange(uri, null);
-            }
-
-            // Return the number of rows updated
-            return rowsUpdated;
-        }
-
         @Override
         public int delete (Uri uri, String selection, String[]selectionArgs){
             // Get writeable database
@@ -307,7 +224,12 @@ public class InventoryProvider extends ContentProvider {
             return rowsDeleted;
         }
 
-        @Override
+    @Override
+    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String s, @Nullable String[] strings) {
+        return 0;
+    }
+
+    @Override
         public String getType (Uri uri){
             final int match = sUriMatcher.match(uri);
             switch (match) {

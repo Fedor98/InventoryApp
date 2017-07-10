@@ -129,7 +129,7 @@ public class CatalogActivity extends AppCompatActivity implements
         // and Shampoo item's attributes are the values.
         ContentValues values = new ContentValues();
         values.put(InventoryEntry.COLUMN_ITEM_NAME, "3 in 1 Shampoo");
-        values.put(InventoryEntry.COLUMN_ITEM_PRICE, "4");
+        values.put(InventoryEntry.COLUMN_ITEM_PRICE, "2.80");
         values.put(InventoryEntry.COLUMN_ITEM_QUANTITY, "10");
         values.put(InventoryEntry.COLUMN_ITEM_SUPPLIER, "dm");
         values.put(InventoryEntry.COLUMN_ITEM_IMAGE, itemImage);

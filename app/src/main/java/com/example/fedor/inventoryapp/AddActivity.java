@@ -295,7 +295,7 @@ public class AddActivity extends AppCompatActivity {
         }
 
         if (TextUtils.isEmpty(nameString) || TextUtils.isEmpty(priceString) ||
-                TextUtils.isEmpty(quantityString) && TextUtils.isEmpty(supplierString) ||
+                TextUtils.isEmpty(quantityString) || TextUtils.isEmpty(supplierString) ||
                 TextUtils.isEmpty(itemImage)) {
 
             // Prompt user to insert all required info about the item

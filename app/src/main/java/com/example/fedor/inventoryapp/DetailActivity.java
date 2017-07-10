@@ -126,11 +126,11 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
                 // Show a toast message depending on whether or not the decreasement was successful.
                 if (rowsAffected == 0) {
                     // If no rows were affected, then there was an error with the update.
-                    Toast.makeText(DetailActivity.this, "Error with decreasing quantity",
+                    Toast.makeText(DetailActivity.this, "Error with increasing quantity",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     // Otherwise, the update was successful and we can display a toast.
-                    Toast.makeText(DetailActivity.this, "Quantity decreased by 1",
+                    Toast.makeText(DetailActivity.this, "Quantity increased by 1",
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -190,50 +190,27 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
                 showDeleteConfirmationDialog();
                 return true;
             case R.id.action_shop:
-                int quantity = Integer.parseInt(mQuantityTextView.getText().toString());
-                if (quantity > 0) {
-                    quantity = quantity - 1;
+                String itemName = mNameTextView.getText().toString();
+                String itemPrice = mPriceTextView.getText().toString();
+                String itemSupplier = mSupplierTextView.getText().toString();
 
-                    ContentValues values = new ContentValues();
-                    values.put(InventoryEntry.COLUMN_ITEM_QUANTITY, quantity);
+                //Create the order summary
+                String priceMessage = getString(R.string.init_order_summary, itemName);
+                priceMessage += getString(R.string.price_order_summary, itemPrice);
+                priceMessage += getString(R.string.supplier_order_summary, itemSupplier);
 
-                    int rowsAffected = getContentResolver().update(mCurrentItemUri, values, null, null);
-
-                    // Show a toast message depending on whether or not the purchase was successful.
-                    if (rowsAffected == 0) {
-                        // If no rows were affected, then there was an error with the purchase.
-                        Toast.makeText(DetailActivity.this, "Error with purchasing product",
-                                Toast.LENGTH_SHORT).show();
-                    } else {
-                        String itemName = mNameTextView.getText().toString();
-                        String itemPrice = mPriceTextView.getText().toString();
-                        String itemSupplier = mSupplierTextView.getText().toString();
-
-                        //Create the order summary
-                        String priceMessage = getString(R.string.init_order_summary, itemName);
-                        priceMessage += getString(R.string.price_order_summary, itemPrice);
-                        priceMessage += getString(R.string.supplier_order_summary, itemSupplier);
-
-                    /*
-                     Use an intent to launch an email app.
-                     Send the order summary in the email body.
-                    */
-                        Intent intent = new Intent(Intent.ACTION_SENDTO);
-                        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-                        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.order_summary_email_subject));
-                        intent.putExtra(Intent.EXTRA_TEXT, priceMessage);
-                        if (intent.resolveActivity(getPackageManager()) != null) {
-                            startActivity(intent);
-                        }
-                    }
-
-                } else {
-                    Toast.makeText(DetailActivity.this,
-                            "Item sold out",
-                            Toast.LENGTH_SHORT).show();
+                /*
+                 Use an intent to launch an email app.
+                 Send the order summary in the email body.
+                */
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+                intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.order_summary_email_subject));
+                intent.putExtra(Intent.EXTRA_TEXT, priceMessage);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
                 }
-                return true;
-        }
+            }
         return super.onOptionsItemSelected(item);
     }
 
@@ -278,14 +255,14 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
 
             // Extract out the value from the Cursor for the given column index
             String name = cursor.getString(nameColumnIndex);
-            int price = cursor.getInt(priceColumnIndex);
+            double price = cursor.getDouble(priceColumnIndex);
             int quantity = cursor.getInt(quantityColumnIndex);
             String supplier = cursor.getString(supplierColumnIndex);
             String item_image = cursor.getString(imageColumnIndex);
 
             // Update the views on the screen with the values from the database
             mNameTextView.setText(name);
-            mPriceTextView.setText(Integer.toString(price) + "€");
+            mPriceTextView.setText(Double.toString(price) + "€");
             mQuantityTextView.setText(Integer.toString(quantity));
             mSupplierTextView.setText(supplier);
             if (TextUtils.isEmpty(item_image)) {
